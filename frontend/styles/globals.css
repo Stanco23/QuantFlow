@@ -1,0 +1,227 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom global styles for QuantFlow */
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  background-color: #0f172a; /* slate-900 */
+  color: #ffffff;
+  overflow: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Chart container styles */
+.chart-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* Loading spinner */
+.loading-spinner {
+  width: 32px;
+  height: 32px;
+  border: 2px solid #3b82f6;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Enhanced Custom scrollbar */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #475569 #1e293b;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  @apply bg-slate-800 rounded-full;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  @apply bg-slate-600 rounded-full;
+  transition: background-color 0.2s;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  @apply bg-slate-500;
+}
+
+.custom-scrollbar::-webkit-scrollbar-corner {
+  @apply bg-slate-800;
+}
+
+/* Order status badges */
+.status-pending {
+  @apply bg-yellow-800 text-yellow-200;
+}
+
+.status-filled {
+  @apply bg-green-800 text-green-200;
+}
+
+.status-cancelled {
+  @apply bg-red-800 text-red-200;
+}
+
+.status-rejected {
+  @apply bg-red-900 text-red-300;
+}
+
+/* Trading view overrides */
+.tv-lightweight-charts {
+  background-color: transparent !important;
+}
+
+/* Modern UI enhancements */
+.gradient-border {
+  position: relative;
+  background: linear-gradient(135deg, #1e293b, #334155);
+  border: 1px solid transparent;
+}
+
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  border-radius: inherit;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: subtract;
+  pointer-events: none;
+}
+
+/* Glass effect */
+.glass-effect {
+  background: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(148, 163, 184, 0.1);
+}
+
+/* Glow effects for buttons */
+.btn-glow-green {
+  box-shadow: 0 0 20px rgba(34, 197, 94, 0.3);
+  transition: box-shadow 0.3s ease;
+}
+
+.btn-glow-green:hover {
+  box-shadow: 0 0 30px rgba(34, 197, 94, 0.5);
+}
+
+.btn-glow-red {
+  box-shadow: 0 0 20px rgba(239, 68, 68, 0.3);
+  transition: box-shadow 0.3s ease;
+}
+
+.btn-glow-red:hover {
+  box-shadow: 0 0 30px rgba(239, 68, 68, 0.5);
+}
+
+.btn-glow-blue {
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+  transition: box-shadow 0.3s ease;
+}
+
+.btn-glow-blue:hover {
+  box-shadow: 0 0 30px rgba(59, 130, 246, 0.5);
+}
+
+/* Market data animations */
+@keyframes price-up {
+  0% { background-color: rgba(34, 197, 94, 0.1); }
+  100% { background-color: transparent; }
+}
+
+@keyframes price-down {
+  0% { background-color: rgba(239, 68, 68, 0.1); }
+  100% { background-color: transparent; }
+}
+
+.price-up {
+  animation: price-up 1s ease-out;
+}
+
+.price-down {
+  animation: price-down 1s ease-out;
+}
+
+/* Responsive design enhancements */
+@media (max-width: 768px) {
+  .responsive-table {
+    @apply text-xs;
+  }
+  
+  .responsive-table th,
+  .responsive-table td {
+    @apply px-2 py-1;
+  }
+  
+  /* Mobile optimizations */
+  .mobile-compact {
+    @apply p-2 text-sm;
+  }
+  
+  .mobile-hide {
+    @apply hidden;
+  }
+}
+
+/* Focus styles for accessibility */
+input:focus,
+select:focus,
+button:focus,
+textarea:focus {
+  outline: none;
+  @apply ring-2 ring-blue-500 ring-opacity-50;
+}
+
+/* Improved form styling */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* Transition utilities */
+.transition-all {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Custom bg colors for better contrast */
+.bg-slate-750 {
+  background-color: #1a2234;
+}
+
+.bg-slate-850 {
+  background-color: #0d1425;
+}
